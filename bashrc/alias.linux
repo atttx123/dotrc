@@ -1,0 +1,16 @@
+alias ll='ls -l'
+alias la='ls -Ap'
+alias l='ls -CF'
+
+alias ls='ls -hB --color=auto --show-control-chars'
+alias free='free -m'
+alias du='du -h --max-depth=1'
+alias man="TERMINFO=~/.terminfo/ LESS=C TERM=mostlike PAGER=less man"
+
+alias mountiso='sudo mount -t iso9660 -o loop'
+alias mountudf='sudo mount -t udf -o loop'
+alias mountntfs='sudo mount -t ntfs-3g -o uid=1000'
+
+alias txt2gif='convert -background none -density 196 -resample 72 -unsharp 0x.5 -font "Courier" text:- -trim +repage -bordercolor white -border 3'
+alias zhuabao='sudo tcpdump -s 0 tcp port 80 -w'
+alias slide='impressive -c memory -T 500'

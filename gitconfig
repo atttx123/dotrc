@@ -1,0 +1,27 @@
+[user]
+	name = lazy
+	email = atttx123@gmail.com
+[core]
+	editor = vim
+	excludesfile = /Users/yu/.gitignore_global
+[merge]
+	tool = vimdiff
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	co = checkout
+	cm = commit
+	cl = clone
+    st = status
+    br = branch
+	diff = diff --check
+[push]
+	default = upstream
+[color]
+	ui = auto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
