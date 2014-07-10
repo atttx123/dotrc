@@ -82,3 +82,4 @@ export PATH=$PATH:$GOROOT/bin
 # autojump alias
 alias jumpstat="autojump -s"
 alias diff='diff -u'
+alias l='ls -p'
