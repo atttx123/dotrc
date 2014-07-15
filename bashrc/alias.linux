@@ -1,8 +1,8 @@
-alias ll='ls -l'
-alias la='ls -Ap'
+alias ls='ls -hB --color=auto --show-control-chars'
+alias ll='ls -lp'
+alias la='ls -alp'
 alias l='ls -CF'
 
-alias ls='ls -hB --color=auto --show-control-chars'
 alias free='free -m'
 alias du='du -h --max-depth=1'
 alias man="TERMINFO=~/.terminfo/ LESS=C TERM=mostlike PAGER=less man"
