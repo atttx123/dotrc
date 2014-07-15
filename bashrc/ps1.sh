@@ -51,7 +51,7 @@ prompt_command() {
     local GREEN=$'\e[32m'
     local ORANGE=$'\e[33m'
 
-    echo "${__TERM_TITLE}\w\r\[${PINK}\]\u \[${D}\]at \[${ORANGE}\]\h \[${D}\]in \[${GREEN}\]\w \[${CLR_COLOR}\]${IS_GIT_BRANCH}${IS_SHLVL}${IS_RETURN_VAL}\[${CLR_COLOR}\]\n\
+    echo "${__TERM_TITLE}\n\w\r\[${PINK}\]\u \[${D}\]at \[${ORANGE}\]\h \[${D}\]in \[${GREEN}\]\w \[${CLR_COLOR}\]${IS_GIT_BRANCH}${IS_SHLVL}${IS_RETURN_VAL}\[${CLR_COLOR}\]\n\
 \[${PS1_COLOR}\](! \!)->\[${CLR_COLOR}\] "
 }
 
