@@ -18,6 +18,8 @@
 	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [push]
 	default = upstream
+[http]
+	postBuffer=52428800
 [color]
 	ui = auto
 [difftool "sourcetree"]
