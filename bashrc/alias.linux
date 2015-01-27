@@ -15,3 +15,5 @@ alias mountntfs='sudo mount -t ntfs-3g -o uid=1000'
 alias txt2gif='convert -background none -density 196 -resample 72 -unsharp 0x.5 -font "Courier" text:- -trim +repage -bordercolor white -border 3'
 alias zhuabao='sudo tcpdump -s 0 tcp port 80 -w'
 alias slide='impressive -c memory -T 500'
+
+alias tree='tree -C'

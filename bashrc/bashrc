@@ -28,7 +28,7 @@ USERLOCALBIN=/usr/local/bin
 PROMPT_COMMAND_FILE=$BASHRCD/ps1.sh
 
 export EDITOR=vim
-export PATH=$USERLOCALBIN:$USERBIN:$PATH:/usr/local/go/bin:/usr/sbin
+export PATH=$USERLOCALBIN:$USERBIN:$PATH:/usr/local/go/bin:/usr/sbin:/sbin
 
 source_if_exist() {
     if [ -r "$1" ]; then

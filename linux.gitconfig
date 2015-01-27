@@ -1,23 +1,23 @@
 [user]
-	name = yu.zhang
-	email = yu.zhang@cloudacc-inc.com
+    name = yu.zhang
+    email = yu.zhang@cloudacc-inc.com
 [core]
-	editor = vim
-	excludesfile = /home/yu/.gitignore_global
-	autocrlf = input
+    editor = vim
+    excludesfile = /home/yu/.gitignore_global
+    autocrlf = input
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [alias]
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	co = checkout
-	cm = commit
-	cl = clone
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    co = checkout
+    cm = commit
+    cl = clone
     st = status
     br = branch
-	diff = diff --check
-	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    diff = diff --check
+    tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [push]
-	default = upstream
+    default = upstream
 [color]
-	ui = auto
+    ui = auto
