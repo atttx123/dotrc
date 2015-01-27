@@ -83,3 +83,5 @@ export PATH=$PATH:$GOPATH/bin
 alias jumpstat="autojump -s"
 alias diff='diff -u'
 alias l='ls -p'
+alias vi='gvim -v'
+alias vim='gvim -v'
