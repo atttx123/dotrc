@@ -10,7 +10,7 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	co = checkout
-	cm = commit
+	ci = commit
 	cl = clone
     st = status
     br = branch
@@ -24,7 +24,7 @@
 	ui = auto
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

@@ -11,7 +11,7 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     co = checkout
-    cm = commit
+    ci = commit
     cl = clone
     st = status
     br = branch
