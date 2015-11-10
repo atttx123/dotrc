@@ -5,6 +5,8 @@
     editor = vim
     excludesfile = /home/yu/.gitignore_global
     autocrlf = input
+[diff]
+    tool = vimdiff
 [merge]
     tool = vimdiff
 [alias]
@@ -12,6 +14,7 @@
     last = log -1 HEAD
     co = checkout
     ci = commit
+    cm = commit
     cl = clone
     st = status
     br = branch
