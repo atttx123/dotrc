@@ -57,9 +57,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-# golang path
+
 export GOPATH=/usr/local/go/1.4
-export PATH=$PATH:$GOPATH/bin
+export ANDROID_HOME=/Users/yu/Android/sdk
+export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
