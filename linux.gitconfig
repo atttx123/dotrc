@@ -1,6 +1,6 @@
 [user]
     name = yu.zhang
-    email = yu.zhang@cloudacc-inc.com
+    email = zhangyu17@letv.com
 [core]
     editor = vim
     excludesfile = /home/yu/.gitignore_global
