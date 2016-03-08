@@ -43,7 +43,7 @@ ZSH_THEME="Soliah"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -57,9 +57,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-# golang path
-export GOPATH=/usr/local/go/current
-export PATH=$PATH:$GOPATH/bin
+
+export GOPATH=/usr/local/go/1.4
+export ANDROID_HOME=/Users/yu/Android/sdk
+export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
