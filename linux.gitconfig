@@ -1,6 +1,6 @@
 [user]
     name = yu
-    email = zhangyu17@letv.com
+    email = zhangyu17@le.com
 [core]
     editor = vim
     excludesfile = /home/yu/.gitignore_global
