@@ -1,19 +1,20 @@
 [user]
-	name = lazy
+	name = atttx123
 	email = atttx123@gmail.com
 [core]
 	editor = vim
 	excludesfile = /Users/yu/.gitignore_global
+	askPass = true
 [merge]
 	tool = vimdiff
 [alias]
 	unstage = reset HEAD --
-	last = log -1 HEAD
+	last = show -1 HEAD
 	co = checkout
 	ci = commit
 	cl = clone
-    st = status
-    br = branch
+	st = status
+	br = branch
 	diff = diff --check
 	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [push]
@@ -29,4 +30,4 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [credential]
-	helper = cache --timeout=3600
+	helper = cache --timeout=300

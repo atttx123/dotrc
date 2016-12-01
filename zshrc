@@ -59,8 +59,11 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 export GOPATH=/usr/local/go/1.4
+export ANDROID_SDK=/Users/yu/Android/sdk
+export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
 export ANDROID_HOME=/Users/yu/Android/sdk
-export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
+export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools:$ANDROID_HOME/ndk-bundle
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -87,3 +90,11 @@ alias l='ls -p'
 alias vi='gvim -v'
 alias vim='gvim -v'
 alias tree='tree -C'
+
+alias urldecode='python -c "import sys, urllib as ul; \
+	    print ul.unquote_plus(sys.argv[1])"'
+
+alias urlencode='python -c "import sys, urllib as ul; \
+	    print ul.quote_plus(sys.argv[1])"'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
