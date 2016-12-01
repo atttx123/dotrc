@@ -91,10 +91,8 @@ alias vi='gvim -v'
 alias vim='gvim -v'
 alias tree='tree -C'
 
-alias urldecode='python -c "import sys, urllib as ul; \
-	    print ul.unquote_plus(sys.argv[1])"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 
-alias urlencode='python -c "import sys, urllib as ul; \
-	    print ul.quote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
