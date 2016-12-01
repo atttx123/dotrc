@@ -12,6 +12,7 @@
 	last = show -1 HEAD
 	co = checkout
 	ci = commit
+	cm = commit
 	cl = clone
 	st = status
 	br = branch
@@ -23,11 +24,5 @@
 	postBuffer=52428800
 [color]
 	ui = auto
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [credential]
 	helper = cache --timeout=300
