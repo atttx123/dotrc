@@ -1,5 +1,7 @@
-# Path to your oh-my-zsh installation.
+#  Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# zmodload zsh/zprof
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -30,7 +32,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -51,7 +53,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump brew git golang mvn svn mercurial python pip pyenv docker kubectl)
+plugins=(autojump git mvn)
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,8 +91,26 @@ alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+function enable-pyenv() {
+    source $ZSH/plugins/pyenv/*.zsh
+    export PYENV_ROOT="${HOME}/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+}
 
-# pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+function docker() {
+    if ! type _docker >/dev/null 2>&1; then
+        source <(command docker completion zsh)
+    fi
+    command docker "$@"
+}
+
+function kubectl() {
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+    command kubectl "$@"
+}
+
+# zprof
