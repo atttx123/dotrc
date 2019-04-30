@@ -6,9 +6,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="af-magic"
-#ZSH_THEME="blinks"
+ZSH_THEME="blinks"
 #ZSH_THEME="nanotech"
-ZSH_THEME="Soliah"
+#ZSH_THEME="Soliah"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -18,7 +18,7 @@ ZSH_THEME="Soliah"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
- DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -33,12 +33,12 @@ ZSH_THEME="Soliah"
 # DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -51,48 +51,45 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump brew git golang mvn svn mercurial)
+plugins=(autojump brew git golang mvn svn mercurial python pip pyenv docker kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export JAVA_HOME=$(/usr/libexec/java_home)
+export GOROOT="/usr/local/Cellar/go/current/libexec/"
+export GOPATH="/Users/yu/Workspace/gopath"
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
-export GOPATH=/usr/local/go/1.4
-export ANDROID_SDK=/Users/yu/Android/sdk
-export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
-export ANDROID_HOME=/Users/yu/Android/sdk
-export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
-export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools:$ANDROID_HOME/ndk-bundle
+# export ANDROID_SDK=/Users/yu/Android/sdk
+# export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
+# export ANDROID_HOME=/Users/yu/Android/sdk
+# export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
+# export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools:$ANDROID_HOME/ndk-bundle
+export PATH=/Library/Developer/CommandLineTools/usr/bin:$PATH:$GOPATH/bin
+export EDITOR="/Applications/MacVim.app/Contents/bin/vim"
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# autojump alias
+# alias
 alias jumpstat="autojump -s"
 alias diff='diff -u'
-alias l='ls -p'
-alias vi='gvim -v'
-alias vim='gvim -v'
+alias ls='ls -Gh'
+alias df='df -h'
+alias du='du -h'
+alias vi='vim'
 alias tree='tree -C'
+alias rm='rm -i'
+alias srm='srm -i'
+alias mv='mv -i'
 
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
+alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
+alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
+export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"

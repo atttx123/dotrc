@@ -5,6 +5,7 @@
 	editor = vim
 	excludesfile = /Users/yu/.gitignore_global
 	askPass = true
+	autocrlf = input
 [merge]
 	tool = vimdiff
 [alias]
