@@ -79,10 +79,12 @@ alias ls='ls -Gh'
 alias df='df -h'
 alias du='du -h'
 alias vi='vim'
+alias vik8s='vim "+call K8S()"'
 alias tree='tree -C'
 alias rm='rm -i'
 alias srm='srm -i'
 alias mv='mv -i'
+alias k='kubectl'
 
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
@@ -91,17 +93,18 @@ alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
-function enable-pyenv() {
+function pyenv-init() {
     source $ZSH/plugins/pyenv/*.zsh
     export PYENV_ROOT="${HOME}/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
+    source <(command pyenv completions zsh)
 }
 
 function docker() {
-    if ! type _docker >/dev/null 2>&1; then
-        source <(command docker completion zsh)
+    if ! type __docker_arguments >/dev/null 2>&1; then
+        source $ZSH/plugins/docker/_docker
     fi
     command docker "$@"
 }
