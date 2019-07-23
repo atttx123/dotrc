@@ -1,29 +1,26 @@
-[user]
-	name = atttx123
-	email = atttx123@gmail.com
 [core]
-	editor = vim
-	excludesfile = /Users/yu/.gitignore_global
-	askPass = true
-	autocrlf = input
+    editor = vim
+    excludesfile = /Users/yu/.gitignore_global
+    askPass = true
+    autocrlf = input
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [alias]
-	unstage = reset HEAD --
-	last = show -1 HEAD
-	co = checkout
-	ci = commit
-	cm = commit
-	cl = clone
-	st = status
-	br = branch
-	diff = diff --check
+    unstage = reset HEAD --
+    last = show -1 HEAD
+    co = checkout
+    ci = commit
+    cm = commit
+    cl = clone
+    st = status
+    br = branch
+    diff = diff --check
     tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [push]
-	default = upstream
+    default = upstream
 [http]
-	postBuffer=52428800
+    postBuffer=52428800
 [color]
-	ui = auto
+    ui = auto
 [credential]
-	helper = cache --timeout=300
+    helper = cache --timeout=300
