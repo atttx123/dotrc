@@ -89,7 +89,7 @@ alias k='kubectl'
 
 alias urldecode='python -c "import sys, urllib as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]))"'
-alias base64_urlsafe='python -c "import base64, sys; print(base64.urlsafe_b64encode(open(sys.argv[1]).read()))"'
+alias base64_urlsafe='python -c "import base64, sys; print(base64.urlsafe_b64encode(open(sys.argv[1], /"rb/").read()))"'
 
 alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
