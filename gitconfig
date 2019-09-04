@@ -14,7 +14,7 @@
     cl = clone
     st = status
     br = branch
-    df = diff --check
+    df = diff --ignore-space-at-eol
     tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [push]
     default = upstream

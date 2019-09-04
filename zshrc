@@ -3,14 +3,12 @@ export ZSH=$HOME/.oh-my-zsh
 
 # zmodload zsh/zprof
 
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="af-magic"
-ZSH_THEME="blinks"
-#ZSH_THEME="nanotech"
-#ZSH_THEME="Soliah"
+ZSH_THEME="my_sunrise"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -21,6 +19,8 @@ ZSH_THEME="blinks"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
+ZSH_DISABLE_COMPFIX="true"
+DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -53,7 +53,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git mvn)
+plugins=(autojump git)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -89,11 +89,14 @@ alias k='kubectl'
 
 alias urldecode='python -c "import sys, urllib as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]))"'
-alias base64_urlsafe='python -c "import base64, sys; print(base64.urlsafe_b64encode(open(sys.argv[1], /"rb/").read()))"'
+alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_b64encode(open(sys.argv[1], /"rb/").read()))"'
 
 alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
+
+# use tsginghua mirror for homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 function pyenv-init() {
     source $ZSH/plugins/pyenv/*.zsh
@@ -102,6 +105,14 @@ function pyenv-init() {
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     source <(command pyenv completions zsh)
+}
+
+function jenv-init() {
+    source $ZSH/plugins/jenv/*.zsh
+    export JENV_ROOT="${HOME}/.jenv"
+    export PATH="$JENV_ROOT/bin:$PATH"
+    eval "$(jenv init -)"
+    source $JENV_ROOT/completions/*.zsh
 }
 
 function docker() {
@@ -118,4 +129,6 @@ function kubectl() {
     command kubectl "$@"
 }
 
+
 # zprof
+# zmodload -u zsh/zprof
