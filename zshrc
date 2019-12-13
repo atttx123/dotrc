@@ -60,7 +60,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export JAVA_HOME=$(/usr/libexec/java_home)
-export GOROOT="/usr/local/Cellar/go/current/libexec/"
 export GOPATH="/Users/yu/Workspace/gopath"
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
