@@ -68,7 +68,7 @@ export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 # export ANDROID_HOME=/Users/yu/Android/sdk
 # export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 # export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools:$ANDROID_HOME/ndk-bundle
-export PATH=/Library/Developer/CommandLineTools/usr/bin:$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/Library/Developer/CommandLineTools/usr/bin
 export EDITOR="/Applications/MacVim.app/Contents/bin/vim"
 
 # alias

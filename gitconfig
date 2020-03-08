@@ -28,3 +28,5 @@
     ui = auto
 [credential]
     helper = cache --timeout=300
+[url "git@github.com:"]
+	insteadOf = https://github.com/
