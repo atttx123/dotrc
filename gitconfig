@@ -1,6 +1,3 @@
-[user]
-    name = atttx123
-    email = atttx123@gmail.com
 [core]
     editor = vim
     excludesfile = /Users/yu/.gitignore_global

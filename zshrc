@@ -90,6 +90,9 @@ alias urldecode='python -c "import sys, urllib as ul; print(ul.unquote_plus(sys.
 alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]))"'
 alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_b64encode(open(sys.argv[1], /"rb/").read()))"'
 
+alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
+alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
+
 alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
