@@ -61,7 +61,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export JAVA_HOME=$(/usr/libexec/java_home)
 export GOPATH="/Users/yu/Workspace/gopath"
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/opt/grep/libexec/gnubin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # export ANDROID_SDK=/Users/yu/Android/sdk
 # export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
@@ -93,7 +93,7 @@ alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_
 alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
 
-alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:1087"'
+alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:9999"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
