@@ -61,6 +61,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export JAVA_HOME=$(/usr/libexec/java_home)
 export GOPATH="/Users/yu/Workspace/gopath"
+export GOPROXY="https://mirrors.aliyun.com/goproxy,https://goproxy.cn,direct"
 export PATH=/usr/local/opt/grep/libexec/gnubin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # export ANDROID_SDK=/Users/yu/Android/sdk
@@ -93,7 +94,7 @@ alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_
 alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
 
-alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:9999"'
+alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:9999" && export SOCKET_PROXY="127.0.0.1:10000"'
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
@@ -130,6 +131,12 @@ function kubectl() {
     fi
     command kubectl "$@"
 }
+
+# libxml2
+# export PATH="/usr/local/opt/libxml2/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/libxml2/lib"
+# export CPPFLAGS="-I/usr/local/opt/libxml2/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 
 
 # zprof
