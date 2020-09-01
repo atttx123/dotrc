@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="my_sunrise"
+ZSH_THEME="sunrise"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -60,17 +60,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export JAVA_HOME=$(/usr/libexec/java_home)
-export GOPATH="/Users/yu/Workspace/gopath"
+export GOPATH="/Users/yu/Workspace"
 export GOPROXY="https://mirrors.aliyun.com/goproxy,https://goproxy.cn,direct"
-export PATH=/usr/local/opt/grep/libexec/gnubin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
-# export ANDROID_SDK=/Users/yu/Android/sdk
-# export ANDROID_NDK=$ANDROID_SDK/ndk-bundle
-# export ANDROID_HOME=/Users/yu/Android/sdk
-# export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
-# export PATH=$PATH:$GOPATH/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools:$ANDROID_HOME/ndk-bundle
 export PATH=$PATH:$GOPATH/bin:/Library/Developer/CommandLineTools/usr/bin
-export EDITOR="/Applications/MacVim.app/Contents/bin/vim"
 
 # alias
 alias jumpstat="autojump -s"
