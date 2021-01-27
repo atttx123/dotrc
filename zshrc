@@ -60,6 +60,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export JAVA_HOME=$(/usr/libexec/java_home)
+export GIT_PATH="/Users/yu/Workspace/src"
 export GOPATH="/Users/yu/Workspace"
 export GOPROXY="https://mirrors.aliyun.com/goproxy,https://goproxy.cn,direct"
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
@@ -96,6 +97,10 @@ export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/2
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 function pyenv-init() {
+    # use taobao mirror
+    export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
+    export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=true
+
     source $ZSH/plugins/pyenv/*.zsh
     export PYENV_ROOT="${HOME}/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
