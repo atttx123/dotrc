@@ -1,11 +1,10 @@
 --ignore-dir=.idea/
-
-# for node.js
+--ignore-dir=.vscode/
+--ignore-dir=vendor/
+--ignore-dir=target/
 --ignore-dir=node_modules/
 
-# for golang
---ignore-dir=vendor/
-
-# for java
---ignore-dir=target/
-
+# Bazel
+--type-add=bazel:ext:bzl
+--type-add=bazel:is:BUILD,WORKSPACE
+--type-add=bazel:is:WORKSPACE
