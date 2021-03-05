@@ -53,12 +53,13 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git)
+plugins=(autojump git zsh-autosuggestions history-substring-search)
 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export HOMEBREW_NO_AUTO_UPDATE=1
 export JAVA_HOME=$(/usr/libexec/java_home)
 export GIT_PATH="/Users/yu/Workspace/src"
 export GOPATH="/Users/yu/Workspace"
@@ -81,6 +82,7 @@ alias rm='rm -i'
 alias srm='srm -i'
 alias mv='mv -i'
 alias k='kubectl'
+alias nproc="sysctl -n hw.logicalcpu"
 
 alias urldecode='python -c "import sys, urllib as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]))"'
@@ -90,6 +92,10 @@ alias gitconf_atttx123='git config user.name atttx123 && git config user.email a
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
 
 alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:9999" && export SOCKET_PROXY="127.0.0.1:10000"'
+function F() {
+    IP=$(ifconfig en0 | grep "inet " | cut -d\  -f2)
+    echo "export {HTTP,HTTPS,FTP}_PROXY=\"http://$IP:9999\""
+}
 alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
@@ -131,11 +137,10 @@ function kubectl() {
     command kubectl "$@"
 }
 
-# libxml2
-# export PATH="/usr/local/opt/libxml2/bin:$PATH"
-# export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-# export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-# export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^t' autosuggest-toggle
+# bindkey '^f' autosuggest-accept
 
 
 # zprof
