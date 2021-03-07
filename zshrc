@@ -120,7 +120,14 @@ function jenv-init() {
     export JENV_ROOT="${HOME}/.jenv"
     export PATH="$JENV_ROOT/bin:$PATH"
     eval "$(jenv init -)"
-    source $JENV_ROOT/completions/*.zsh
+    source <(command jenv completions zsh)
+}
+
+function nodenv-init() {
+    export NODENV_ROOT="${HOME}/.nodenv"
+    export PATH="$NODENV_ROOT/bin:$PATH"
+    eval "$(nodenv init -)"
+    source <(command nodenv completions zsh)
 }
 
 function docker() {
