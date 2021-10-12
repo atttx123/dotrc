@@ -60,13 +60,16 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export HOMEBREW_NO_AUTO_UPDATE=1
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)
 export GIT_PATH="/Users/yu/Workspace/src"
 export GOPATH="/Users/yu/Workspace"
 export GOPROXY="https://mirrors.aliyun.com/goproxy,https://goproxy.cn,direct"
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 export PATH=$PATH:$GOPATH/bin:/Library/Developer/CommandLineTools/usr/bin
+
+# export CMAKE_C_COMPILER="/usr/local/bin/gcc-10"
+# export CMAKE_CXX_COMPILER="/usr/local/bin/g++-10"
 
 # alias
 alias jumpstat="autojump -s"
@@ -83,6 +86,7 @@ alias srm='srm -i'
 alias mv='mv -i'
 alias k='kubectl'
 alias nproc="sysctl -n hw.logicalcpu"
+alias lscpu="sysctl machdep.cpu"
 
 alias urldecode='python -c "import sys, urllib as ul; print(ul.unquote_plus(sys.argv[1]))"'
 alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]))"'
@@ -91,16 +95,18 @@ alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_
 alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
 
-alias f='export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:9999" && export SOCKET_PROXY="127.0.0.1:10000"'
+alias f='export {HTTP,HTTPS,FTP,ALL}_PROXY="http://127.0.0.1:9999"'
 function F() {
     IP=$(ifconfig en0 | grep "inet " | cut -d\  -f2)
-    echo "export {HTTP,HTTPS,FTP}_PROXY=\"http://$IP:9999\""
+    echo "export {HTTP,HTTPS,FTP,ALL}_PROXY=\"http://$IP:9999\""
+    echo "export NO_PROXY=\"localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24\""
 }
-alias ff='unset {HTTP,HTTPS,FTP}_PROXY'
+alias ff='unset {HTTP,HTTPS,FTP,ALL}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
 # use tsginghua mirror for homebrew-bottles
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 function pyenv-init() {
     # use taobao mirror

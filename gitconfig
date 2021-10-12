@@ -26,7 +26,12 @@
 [credential]
     helper = cache --timeout=300
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[user]
+    name = atttx123
+    email = atttx123@gmail.com
+[pull]
+    rebase = false
