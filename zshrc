@@ -95,10 +95,10 @@ alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_
 alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
 
-alias f='export {HTTP,HTTPS,FTP,ALL}_PROXY="http://127.0.0.1:9999"'
+alias f='export {HTTP,HTTPS,FTP,ALL}_PROXY="socks5://127.0.0.1:10000"'
 function F() {
     IP=$(ifconfig en0 | grep "inet " | cut -d\  -f2)
-    echo "export {HTTP,HTTPS,FTP,ALL}_PROXY=\"http://$IP:9999\""
+    echo "export {HTTP,HTTPS,FTP,ALL}_PROXY=\"socks5://$IP:10000\""
     echo "export NO_PROXY=\"localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24\""
 }
 alias ff='unset {HTTP,HTTPS,FTP,ALL}_PROXY'
