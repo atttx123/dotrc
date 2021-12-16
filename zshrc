@@ -100,6 +100,7 @@ function F() {
     IP=$(ifconfig en0 | grep "inet " | cut -d\  -f2)
     echo "export {HTTP,HTTPS,FTP,ALL}_PROXY=\"socks5://$IP:10000\""
     echo "export NO_PROXY=\"localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24\""
+    echo "echo \"use_proxy=yes\nhttp_proxy=$IP:9999\nhttps_proxy=$IP:9999\" > ~/.wgetrc"
 }
 alias ff='unset {HTTP,HTTPS,FTP,ALL}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
