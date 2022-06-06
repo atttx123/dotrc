@@ -84,7 +84,6 @@ alias srm='srm -i'
 alias mv='mv -i'
 alias k='kubectl'
 alias nproc="sysctl -n hw.logicalcpu"
-alias lscpu="sysctl machdep.cpu"
 
 alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
@@ -105,7 +104,6 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-
 function pyenv() {
     if [ -z "$PYENV_ROOT" ]; then
         # use taobao mirror for pyenv
@@ -118,6 +116,7 @@ function pyenv() {
     fi
     command pyenv "$@"
 }
+
 function docker() {
     if ! type __docker_arguments >/dev/null 2>&1; then
         source $ZSH/plugins/docker/_docker
@@ -130,6 +129,25 @@ function kubectl() {
         source <(command kubectl completion zsh)
     fi
     command kubectl "$@"
+}
+
+function lscpu() {
+    echo "Architecture:\t\t$(uname -m)"
+    echo "Byte Order:\t\t$(sysctl -n hw.byteorder)"
+    echo "Active CPU(s):\t\t$(sysctl -n hw.logicalcpu)"
+    echo "Thread(s) per core:\t$(( $(sysctl -n hw.logicalcpu) / $(sysctl -n hw.physicalcpu) ))"
+    echo "Core(s) per socket:\t$(( $(sysctl -n hw.physicalcpu) / $(sysctl -n hw.packages) ))"
+    echo "Socket(s):\t\t$(sysctl -n hw.packages)"
+    echo "Vendor ID:\t\t$(sysctl -n machdep.cpu.vendor)"
+    echo "CPU family:\t\t$(sysctl -n machdep.cpu.family)"
+    echo "Model:\t\t\t$(sysctl -n machdep.cpu.model)"
+    echo "Model Name:\t\t$(sysctl -n machdep.cpu.brand_string)"
+    echo "Stepping:\t\t$(sysctl -n machdep.cpu.stepping)"
+    echo "L1d cache:\t\t$(sysctl -n hw.l1dcachesize)"
+    echo "L1i cache:\t\t$(sysctl -n hw.l1icachesize)"
+    echo "L2 cache:\t\t$(sysctl -n hw.l2cachesize)"
+    echo "L3 cache:\t\t$(sysctl -n hw.l3cachesize)"
+    echo "Flags:\t\t\t$(sysctl machdep.cpu | grep features | awk -F": " '{print $2}' | tr '\n' ' ')"
 }
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
