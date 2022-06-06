@@ -133,8 +133,10 @@ function kubectl() {
 
 function lscpu() {
     echo "Architecture:\t\t$(uname -m)"
+    echo "CPU op-mode(s)"
     echo "Byte Order:\t\t$(sysctl -n hw.byteorder)"
-    echo "Active CPU(s):\t\t$(sysctl -n hw.logicalcpu)"
+    echo "CPU(s):\t\t\t$(sysctl -n hw.logicalcpu)"
+    echo "On-line CPU(s)list:\t0-$(( $(sysctl -n hw.logicalcpu) - 1 ))"
     echo "Thread(s) per core:\t$(( $(sysctl -n hw.logicalcpu) / $(sysctl -n hw.physicalcpu) ))"
     echo "Core(s) per socket:\t$(( $(sysctl -n hw.physicalcpu) / $(sysctl -n hw.packages) ))"
     echo "Socket(s):\t\t$(sysctl -n hw.packages)"
