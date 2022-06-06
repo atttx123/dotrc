@@ -53,7 +53,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git pyenv zsh-autosuggestions history-substring-search)
+plugins=(autojump git zsh-autosuggestions history-substring-search)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -105,10 +105,19 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-# use taobao mirror for pyenv
-export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
-export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=true
 
+function pyenv() {
+    if [ -z "PYTHON_BUILD_MIRROR_URL" ]; then
+        # use taobao mirror for pyenv
+        export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
+        export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=true
+
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        source $ZSH/plugins/pyenv/*.zsh
+    fi
+    command pyenv "$@"
+}
 function docker() {
     if ! type __docker_arguments >/dev/null 2>&1; then
         source $ZSH/plugins/docker/_docker
@@ -125,7 +134,7 @@ function kubectl() {
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
-bindkey '^t' autosuggest-toggle
+# bindkey '^t' autosuggest-toggle
 # bindkey '^f' autosuggest-accept
 
 
