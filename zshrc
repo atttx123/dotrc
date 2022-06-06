@@ -99,9 +99,15 @@ function F() {
 alias ff='unset {HTTP,HTTPS,FTP,ALL}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
-# use tsginghua mirror for homebrew-bottles
+# use tsginghua mirror for homebrew
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# use taobao mirror for pyenv
+export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
+export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=true
 
 function docker() {
     if ! type __docker_arguments >/dev/null 2>&1; then
@@ -125,7 +131,3 @@ bindkey '^t' autosuggest-toggle
 
 # zprof
 # zmodload -u zsh/zprof
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
