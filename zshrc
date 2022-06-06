@@ -64,9 +64,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)
 export GIT_PATH="/Users/yu/Workspace/src"
 export GOPATH="/Users/yu/Workspace"
 export GOPROXY="https://mirrors.aliyun.com/goproxy,https://goproxy.cn,direct"
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
-export PATH=$PATH:$GOPATH/bin:/Library/Developer/CommandLineTools/usr/bin
+export PATH=$PATH:/Library/Developer/CommandLineTools/usr/bin:$GOPATH/bin
 
 # export CMAKE_C_COMPILER="/usr/local/bin/gcc-10"
 # export CMAKE_CXX_COMPILER="/usr/local/bin/g++-10"
@@ -107,14 +107,14 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 
 function pyenv() {
-    if [ -z "PYTHON_BUILD_MIRROR_URL" ]; then
+    if [ -z "$PYENV_ROOT" ]; then
         # use taobao mirror for pyenv
         export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
         export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=true
 
         export PYENV_ROOT="$HOME/.pyenv"
         export PATH="$PYENV_ROOT/bin:$PATH"
-        source $ZSH/plugins/pyenv/*.zsh
+        eval "$(pyenv init --path)"
     fi
     command pyenv "$@"
 }
