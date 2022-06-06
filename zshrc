@@ -53,7 +53,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump git zsh-autosuggestions history-substring-search)
+plugins=(autojump git pyenv zsh-autosuggestions history-substring-search)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -78,8 +78,6 @@ alias ls='ls -Gh'
 alias df='df -h'
 alias du='du -h'
 alias vi='vim'
-alias vik8s='vim "+call K8S()" "+VikubeContextList"'
-alias vimk8s='vik8s'
 alias tree='tree -C'
 alias rm='rm -i'
 alias srm='srm -i'
@@ -88,17 +86,13 @@ alias k='kubectl'
 alias nproc="sysctl -n hw.logicalcpu"
 alias lscpu="sysctl machdep.cpu"
 
-alias urldecode='python -c "import sys, urllib as ul; print(ul.unquote_plus(sys.argv[1]))"'
-alias urlencode='python -c "import sys, urllib as ul; print(ul.quote_plus(sys.argv[1]))"'
-alias urlsafe_base64encode='python -c "import base64, sys; print(base64.urlsafe_b64encode(open(sys.argv[1], /"rb/").read()))"'
-
 alias gitconf_atttx123='git config user.name atttx123 && git config user.email atttx123@gmail.com'
 alias gitconf_zhangyu01='git config user.name zhangyu01 && git config user.email zhangyu01@4paradigm.com'
 
-alias f='export {HTTP,HTTPS,FTP,ALL}_PROXY="socks5://127.0.0.1:10000"'
+alias f='export {HTTP,HTTPS,FTP,ALL}_PROXY="http://127.0.0.1:9999"'
 function F() {
     IP=$(ifconfig en0 | grep "inet " | cut -d\  -f2)
-    echo "export {HTTP,HTTPS,FTP,ALL}_PROXY=\"socks5://$IP:10000\""
+    echo "export {HTTP,HTTPS,FTP,ALL}_PROXY=\"http://$IP:9999\""
     echo "export NO_PROXY=\"localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24\""
     echo "echo \"use_proxy=yes\nhttp_proxy=$IP:9999\nhttps_proxy=$IP:9999\" > ~/.wgetrc"
 }
@@ -108,34 +102,6 @@ export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/2
 # use tsginghua mirror for homebrew-bottles
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 export HOMEBREW_NO_AUTO_UPDATE=1
-
-function pyenv-init() {
-    # use taobao mirror
-    export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
-    export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=true
-
-    source $ZSH/plugins/pyenv/*.zsh
-    export PYENV_ROOT="${HOME}/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    source <(command pyenv completions zsh)
-}
-
-function jenv-init() {
-    source $ZSH/plugins/jenv/*.zsh
-    export JENV_ROOT="${HOME}/.jenv"
-    export PATH="$JENV_ROOT/bin:$PATH"
-    eval "$(jenv init -)"
-    source <(command jenv completions zsh)
-}
-
-function nodenv-init() {
-    export NODENV_ROOT="${HOME}/.nodenv"
-    export PATH="$NODENV_ROOT/bin:$PATH"
-    eval "$(nodenv init -)"
-    source <(command nodenv completions zsh)
-}
 
 function docker() {
     if ! type __docker_arguments >/dev/null 2>&1; then
@@ -159,3 +125,7 @@ bindkey '^t' autosuggest-toggle
 
 # zprof
 # zmodload -u zsh/zprof
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
