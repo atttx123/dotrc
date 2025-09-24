@@ -8,7 +8,7 @@
 [alias]
     unstage = reset HEAD --
     last = show -1 HEAD
-    co = checkout
+    ck = checkout
     ci = commit
     cm = commit
     cl = clone
