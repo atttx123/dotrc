@@ -98,11 +98,11 @@ function F() {
 alias ff='unset {HTTP,HTTPS,FTP,ALL}_PROXY'
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
-# use tsginghua mirror for homebrew
+# use tsinghua mirror for homebrew
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_NO_AUTO_UPDATE=1
 
 function pyenv() {
     if [ -z "$PYENV_ROOT" ]; then
@@ -160,3 +160,10 @@ function lscpu() {
 
 # zprof
 # zmodload -u zsh/zprof
+eval "$(fnm env --use-on-cd --shell zsh)"
+export FNM_NODE_DIST_MIRROR=https://npmmirror.com/mirrors/node
+
+# use uv instead of system pip
+alias pip='uv pip'
+alias pip3='uv pip'
+alias pip-install='uv pip install'

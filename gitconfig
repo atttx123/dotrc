@@ -35,3 +35,5 @@
     email = atttx123@gmail.com
 [pull]
     rebase = false
+[safe]
+	directory = *
